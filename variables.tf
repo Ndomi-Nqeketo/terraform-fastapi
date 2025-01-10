@@ -12,3 +12,15 @@ variable "project" {
   type    = string
   default = "EKS FastApi"
 }
+
+variable "availability_zones_count" {
+  description = "The number AZs"
+  type        = number
+  default     = 2
+}
+
+variable "subnet_cidr_bits" {
+  description = "The number of bits for the subnet CIDR"
+  type        = number
+  default     = 8
+}
