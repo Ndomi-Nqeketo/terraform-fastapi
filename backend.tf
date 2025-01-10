@@ -1,7 +1,7 @@
 resource "aws_dynamodb_table" "dynamodb-lock" {
-  name           = "terraform-state-lock"
-  billing_mode   = "PAY_PER_REQUEST"
-  hash_key       = "LockID"
+  name         = "terraform-state-lock"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "LockID"
   attribute {
     name = "LockID"
     type = "S"
@@ -12,14 +12,14 @@ resource "aws_dynamodb_table" "dynamodb-lock" {
 }
 
 terraform {
-    backend "s3" {
-        bucket         = "terraform-state-lock-fastapi"
-        key            = "terraform.tfstate"
-        region         = "eu-west-1"
-        dynamodb_table = "terraform-state-lock"
-    }
+  backend "s3" {
+    bucket         = "terraform-state-lock-fastapi"
+    key            = "terraform.tfstate"
+    region         = "eu-west-1"
+    dynamodb_table = "terraform-state-lock"
+  }
 }
 
 provider "aws" {
-    region = var.region
+  region = var.region
 }

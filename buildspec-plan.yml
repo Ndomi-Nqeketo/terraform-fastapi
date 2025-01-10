@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     TF_VERSION: "1.4.6"
-    PERMISSION_SETS_DIR: "permission_sets"
+    PERMISSION_SET_DIR: "permission_sets"
 
 phases:
   install:
