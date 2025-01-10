@@ -1,0 +1,27 @@
+version: 0.2
+
+env:
+  variables:
+    TF_VERSION: "1.4.6"
+    PERMISSION_SET_DIR: "permission_sets"
+
+phases:
+  install:
+    commands:
+      - cd /usr/bin
+      - curl -s -qL -o terraform.zip https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip
+      - unzip -o terraform.zip
+      - terraform --version
+  build:
+    commands:
+      - cd $CODEBUILD_SRC_DIR
+      - mkdir ${PERMISSION_SET_DIR}
+      - cp -r *.tf ${PERMISSION_SET_DIR}
+      - cd ${$CODEBUILD_SRC_DIR}/${PERMISSION_SET_DIR}
+      - terraform init -no-color
+      - terraform get
+      - terraform plan -no-color -lock=false
+  
+  post_build:
+    commands:
+      - echo "Terraform plan complete on `date`"
