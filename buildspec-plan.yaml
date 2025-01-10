@@ -17,7 +17,7 @@ phases:
       - cd "$CODEBUILD_SRC_DIR"
       - mkdir ${PERMISSION_SET_DIR}
       - cp -r *.tf ${PERMISSION_SET_DIR}
-      - cd ${$CODEBUILD_SRC_DIR}/${PERMISSION_SET_DIR}
+      - cd ${CODEBUILD_SRC_DIR}/${PERMISSION_SET_DIR}
       - terraform init -no-color
       - terraform get
       - terraform plan -no-color -lock=false
