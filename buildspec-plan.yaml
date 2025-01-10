@@ -14,7 +14,7 @@ phases:
       - terraform --version
   build:
     commands:
-      - cd $CODEBUILD_SRC_DIR
+      - cd "$CODEBUILD_SRC_DIR"
       - mkdir ${PERMISSION_SET_DIR}
       - cp -r *.tf ${PERMISSION_SET_DIR}
       - cd ${$CODEBUILD_SRC_DIR}/${PERMISSION_SET_DIR}
