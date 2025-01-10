@@ -20,7 +20,7 @@ phases:
       - cd ${CODEBUILD_SRC_DIR}/${PERMISSION_SETS_DIR}
       - terraform init -no-color
       - terraform get
-      - terraform plan -no-color -lock=false
+      - terraform plan -lock=false
 
   post_build:
     commands:
