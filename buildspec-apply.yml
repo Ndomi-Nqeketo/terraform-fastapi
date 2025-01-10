@@ -27,4 +27,4 @@ phases:
 
   post_build:
     commands:
-      - echo "Terraform apply completed on ${date}"
+      - echo "Terraform apply completed on `date`"
