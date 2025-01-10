@@ -24,3 +24,13 @@ variable "subnet_cidr_bits" {
   type        = number
   default     = 8
 }
+
+variable "cluster_name" {
+    type    = string
+    default = "fastapi-cluster"
+}
+
+variable "fargate_profile_name" {
+    type    = string
+    default = "fastapi-fargate-profile"
+}
